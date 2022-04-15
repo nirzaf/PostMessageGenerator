@@ -1,4 +1,6 @@
-﻿using System.Text.Json;
+﻿using System;
+using System.Collections.Generic;
+using System.Text.Json;
 
 List<OutboundMessage> messages = new();
 for(int i = 0; i < 3; i++) 
@@ -20,12 +22,14 @@ var data = JsonSerializer.Serialize(messages);
 
 Console.WriteLine(data);
 
-//foreach (var mes in message.Properties)
-//{
-//    Console.WriteLine(mes.Key + "   " + mes.Value);
-//}
+foreach (var mes in messages)
+{
+    Console.WriteLine(mes.ProviderName + "   " + mes.Properties);
+}
 
-//Console.ReadLine();
+Console.ReadLine();
+
+
 public class OutboundMessage 
 {
     public string? ProviderName { get; set; }
